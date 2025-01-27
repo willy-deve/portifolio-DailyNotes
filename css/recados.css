@@ -59,6 +59,10 @@ label {
   cursor: pointer;
 }
 
+#btn-atualizar {
+  display: none;
+}
+
 /* Estilos para a tabela */
 table#tabela-registro {
   width: 100%;
