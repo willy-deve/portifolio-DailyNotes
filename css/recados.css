@@ -1,0 +1,89 @@
+/* Estilos para o body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Estilos para o cabeçalho */
+header.cabecalho {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilo para o botão de sair */
+#btn-sair {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Estilos para o fieldset e form */
+fieldset {
+  border: 1px solid #dee2e6;
+  margin: 20px;
+  padding: 10px;
+}
+
+form#form-cadastro {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para os labels e inputs */
+label {
+  margin-top: 10px;
+}
+
+.input-recados {
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Estilos para os botões de actions */
+#btn-salvar,
+#btn-atualizar,
+#btn-cancelar {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#btn-atualizar {
+  display: none;
+}
+
+/* Estilos para a tabela */
+table#tabela-registro {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table#tabela-registro th,
+table#tabela-registro td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilos para o rodapé */
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #6c757d;
+}
