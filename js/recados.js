@@ -129,9 +129,15 @@ function atualizaRecado(id) {
 
   let idAtualizado = inputId.value;
 
-  if (idAtualizado) {
-    alert('ID não pode ser alterado');
-    return
+  if (idAtualizado != id) {
+    let existe = listaRecados.some((recado) => recado.id == idAtualizado);
+
+    if (existe) {
+      limparCampos();
+      alert('ID já cadastrado');
+      return
+    }
+
   }
 
   let tituloAtualiado = inputTitulo.value;
