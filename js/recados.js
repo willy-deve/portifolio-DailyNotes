@@ -176,6 +176,8 @@ function atualizaRecado(id) {
   cancelarCampos();
 }
 
+
+
 //FUNÇÔES AUXILIARES
 function limparCampos() {
   inputId.value = '';
@@ -189,3 +191,5 @@ function cancelarCampos() {
   btnAtualizar.setAttribute('style', 'display: none');
 
 }
+
+btnCancelar.addEventListener('click', cancelarCampos);
