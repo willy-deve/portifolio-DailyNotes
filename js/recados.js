@@ -1,4 +1,5 @@
 
+
 //INPUTS
 let formulario = document.querySelector('#form-cadastro');
 let inputId = document.querySelector('#input-id');
@@ -15,7 +16,7 @@ let btnCancelar = document.querySelector('#btn-cancelar');
 let tabela = document.querySelector('#tabela-registro');
 
 //LISTA
-let listaRecados = [];
+let listaRecados = buscarNoStorage();
 
 //EVENTOS
 formulario.addEventListener('submit', (event) => {
@@ -23,7 +24,12 @@ formulario.addEventListener('submit', (event) => {
   console.log('Formulário enviado');
 
   adicionarNovoRegistro();
+
+
 });
+
+document.addEventListener('DOMContentLoaded', pegarDoStorage())
+
 
 
 //FUNÇÕES
@@ -59,6 +65,8 @@ function adicionarNovoRegistro() {
   console.log(listaRecados);
   limparCampos();
   salvarNaTabela(recados);
+  salvarNoStorage(listaRecados);
+
 
 
 }
@@ -103,8 +111,11 @@ function apagarRecado(id) {
     let registro = document.getElementById(id);
     registro.remove();
 
-    console.log(listaRecados);
+    salvarNoStorage(listaRecados);
+
   }
+
+
 
 }
 
@@ -174,7 +185,28 @@ function atualizaRecado(id) {
   })
 
   cancelarCampos();
+  salvarNoStorage(listaRecados);
 }
+
+
+//LocalStorage
+
+function salvarNoStorage(lista) {
+  localStorage.setItem('storageRecados', JSON.stringify(lista));
+}
+
+function buscarNoStorage() {
+  let listaRecadosStorage = JSON.parse(localStorage.getItem('storageRecados')) || [];
+  return listaRecadosStorage;
+}
+
+
+function pegarDoStorage() {
+  listaRecados.forEach((recado) => {
+    salvarNaTabela(recado)
+  })
+}
+
 
 
 
