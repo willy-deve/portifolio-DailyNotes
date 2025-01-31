@@ -30,7 +30,7 @@ fieldset {
   padding: 10px;
 }
 
-form#form-cadastro {
+#form-recado {
   display: flex;
   flex-direction: column;
 }
