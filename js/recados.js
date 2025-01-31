@@ -1,7 +1,7 @@
 
 
 //INPUTS
-let formulario = document.querySelector('#form-cadastro');
+let formulario = document.querySelector('#form-recado');
 let inputId = document.querySelector('#input-id');
 let inputTitulo = document.querySelector('#input-titulo');
 let inputDescricao = document.querySelector('#input-descricao');
