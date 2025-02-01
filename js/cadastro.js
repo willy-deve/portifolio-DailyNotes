@@ -35,9 +35,11 @@ function cadastroUsuario() {
 
   }
 
+  let senhaCriptografada = CryptoJS.TripleDES.encrypt(senha, 'hash12345').toString();
+
   let usuarios = {
     email,
-    senha
+    senha: senhaCriptografada
   }
 
   listaUsuarios.push(usuarios)
