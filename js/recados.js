@@ -1,4 +1,4 @@
-
+usuarioLogado();
 
 //INPUTS
 let formulario = document.querySelector('#form-recado');
@@ -11,6 +11,7 @@ let inputDescricao = document.querySelector('#input-descricao');
 let btnSalvar = document.querySelector('#btn-salvar');
 let btnAtualizar = document.querySelector('#btn-atualizar');
 let btnCancelar = document.querySelector('#btn-cancelar');
+let btnSair = document.getElementById('btn-sair')
 
 //TABELA
 let tabela = document.querySelector('#tabela-registro');
@@ -192,12 +193,20 @@ function atualizaRecado(id) {
 //LocalStorage
 
 function salvarNoStorage(lista) {
-  localStorage.setItem('storageRecados', JSON.stringify(lista));
+  let indiceUsuarioLogado = sessionStorage.getItem('usuarioLogado');
+  let listaUsuario = JSON.parse(localStorage.getItem('setUsuario'));
+
+  listaUsuario[indiceUsuarioLogado].recadosDoUsuario = lista;
+
+
+  localStorage.setItem('setUsuario', JSON.stringify(listaUsuario));
 }
 
 function buscarNoStorage() {
-  let listaRecadosStorage = JSON.parse(localStorage.getItem('storageRecados')) || [];
-  return listaRecadosStorage;
+  let usuarioLogado = sessionStorage.getItem('usuarioLogado')
+  let listaUsuario = JSON.parse(localStorage.getItem('setUsuario'));
+
+  return listaUsuario[usuarioLogado].recadosDoUsuario || [];
 }
 
 
@@ -205,6 +214,10 @@ function pegarDoStorage() {
   listaRecados.forEach((recado) => {
     salvarNaTabela(recado)
   })
+}
+
+function usuarioLogado() {
+  return sessionStorage.getItem('usuarioLogado')
 }
 
 
@@ -225,3 +238,21 @@ function cancelarCampos() {
 }
 
 btnCancelar.addEventListener('click', cancelarCampos);
+btnSair.addEventListener('click', sair);
+
+function usuarioLogado() {
+  let usuarioLogado = sessionStorage.getItem('usuarioLogado');
+
+  if (!usuarioLogado) {
+    alert('-----------------ERRO---------------')
+    window.location.href = 'login.html'
+
+  }
+}
+
+
+
+function sair() {
+  sessionStorage.removeItem('usuarioLogado');
+  window.location.href = 'login.html'
+}
