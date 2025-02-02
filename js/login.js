@@ -3,6 +3,8 @@ let senha = document.getElementById('input-senha');
 let btnLogin = document.getElementById('login');
 let btnCadastro = document.getElementById('cadastro');
 let formulario = document.getElementById('form-login');
+let vaiParaCadastro = document.getElementById('cadastro');
+
 
 
 
@@ -31,10 +33,20 @@ function login() {
     sessionStorage.setItem('usuarioLogado', usuarioEncontrado);
     window.location.href = "recados.html";
   } else {
+    limparCampos();
     alert('Dados incorretos')
   }
+}
 
+vaiParaCadastro.addEventListener('click', irParaCadastro);
 
+function irParaCadastro() {
+  window.location.href = 'cadastro.html'
+}
+
+function limparCampos() {
+  email.value = '';
+  senha.value = '';
 }
 
 

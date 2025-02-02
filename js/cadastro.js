@@ -4,6 +4,7 @@ let inputRepeteSenha = document.getElementById('input-repete-senha');
 let btnCadastro = document.getElementById('cadastro');
 let login = document.getElementById('login');
 let formulario = document.getElementById('form-cadastro');
+let vaiParaLogin = document.getElementById('login');
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -39,8 +40,11 @@ function cadastroUsuario() {
 
   let usuarios = {
     email,
-    senha: senhaCriptografada
+    senha: senhaCriptografada,
+    recadosDoUsuario: []
   }
+
+
 
   listaUsuarios.push(usuarios)
   salvarNoStorage(listaUsuarios);
@@ -51,6 +55,12 @@ function cadastroUsuario() {
   }, 1500)
 
 
+}
+
+vaiParaLogin.addEventListener('click', irParaLogin)
+
+function irParaLogin() {
+  window.location.href = 'login.html'
 }
 
 //STORAGE
