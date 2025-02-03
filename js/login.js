@@ -21,6 +21,12 @@ function login() {
 
   let listaUsuario = buscarUsuarioNoStorage();
 
+  if (email.value || senha.value === "") {
+    alert("preecha todos os campos")
+    limparCampos();
+    return;
+  }
+
   let usuarioEncontrado = listaUsuario.findIndex((usuario) => {
     if (usuario.email == email.value) {
 

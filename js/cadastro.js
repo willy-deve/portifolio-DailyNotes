@@ -20,14 +20,21 @@ function cadastroUsuario() {
   let senha = inputSenha.value;
   let repeteSenha = inputRepeteSenha.value;
 
+  let existe = listaUsuarios.some((usuario) => usuario.email === email);
+
+
+  if (inputEmail.value || inputSenha.value || inputRepeteSenha.value === "") {
+    alert('Preencha todos os campos');
+    limparCampos();
+    return;
+  }
+
   if (senha != repeteSenha) {
     alert('As senhas não sao iguas')
     limparCampos();
     return;
 
   }
-
-  let existe = listaUsuarios.some((usuario) => usuario.email === email);
 
   if (existe) {
     alert('Esse email ja esta cadastrado')
